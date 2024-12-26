@@ -6,6 +6,13 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/ayoubebn/devops_project.git'
             }
         }
+        stage('Pull Latest Changes') {
+            steps {
+                script {
+                    sh 'git pull origin master'
+                }
+            }
+        }
         stage('Build Docker Image') {
             steps {
                 script {
@@ -16,7 +23,9 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    sh 'docker run -d -p 3000:3000 devops-node-app'
+                    // Stop any existing container and start the new one
+                    sh 'docker stop devops-node-app || true && docker rm devops-node-app || true'
+                    sh 'docker run -d --name devops-node-app -p 3000:3000 devops-node-app'
                 }
             }
         }
