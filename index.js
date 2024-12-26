@@ -7,7 +7,7 @@ app.use(express.json());
 
 // Route principale
 app.get('/', (req, res) => {
-    res.send('Hello hello Aymen ');
+    res.send('Hello hello RAMI ');
 });
 
 // Route pour gérer le webhook GitHub
@@ -18,6 +18,4 @@ app.post('/github-webhook', (req, res) => {
 });
 
 // Démarrer le serveur
-app.listen(PORT, () => {
-    console.log(`App running on http://localhost:${PORT}`);
-});
+app.list
