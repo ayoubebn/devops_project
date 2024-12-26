@@ -1,21 +1,12 @@
-const express = require('express');
+const express = require ('express');
 const app = express();
-const PORT = 3000;
+const PORT = 4000 ;
 
-// Middleware pour analyser le JSON dans les requêtes
-app.use(express.json());
-
-// Route principale
 app.get('/', (req, res) => {
-    res.send('Hello hello issa  ');
+    res.send('Hello hello hamdi  '); 
 });
 
-// Route pour gérer le webhook GitHub
-app.post('/github-webhook', (req, res) => {
-    console.log('Headers:', req.headers);
-    console.log('Body:', req.body);
-    res.status(200).send('Webhook traité avec succès');
-});
+app.listen(PORT, () => {
+    console.log ('App running on http://localhost:${PORT}');
 
-// Démarrer le serveur
-app.list
+});
