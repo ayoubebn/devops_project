@@ -12,7 +12,8 @@ app.get('/', (req, res) => {
 
 // Route pour gérer le webhook GitHub
 app.post('/github-webhook', (req, res) => {
-    console.log('Webhook reçu:', req.body);
+    console.log('Headers:', req.headers);
+    console.log('Body:', req.body);
     res.status(200).send('Webhook traité avec succès');
 });
 
